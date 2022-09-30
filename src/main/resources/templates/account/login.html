@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/accoun.css">
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div class="header-container">
+                <div class="header-left-container">
+                    <div class="site-logo">
+                        <img class="site-logo-img" src="/static/images/header/site_logo.PNG" alt="sttusy">
+                    </div>
+                    <div class="nav-menu-button">
+                        <a class="nav-menu-button-link" href="">SHOP</a>
+                    </div>
+                </div>
+                <div class="header-right-container">
+                    <button class="header-search-button" type="button">SEARCH</button>
+                    <button class="header-bag-button" type="button">BAG(<span class="bag-count-number">1</span>)</button>
+                    <button class="header-country-button" type="button">
+                        <img class="country-button-img" src="/static/images/header/teageukgi.PNG" alt="태극기">
+                    </button>
+                </div>
+            </div>
+            <nav class="nav-invisible">
+                <div class="site-nav-mega">
+                    <a class="site-nav-child-link" href="/collections/new-arrivals">NEW</a>
+                    <a class="site-nav-child-link" href="/collections/tees">TEES</a>
+                    <a class="site-nav-child-link" href="/collections/sweats">SWEATS</a>
+                    <a class="site-nav-child-link" href="/collections/overdyed">OVERDYED</a>
+                    <a class="site-nav-child-link" href="/collections/outerwear">OUTERWEAR</a>
+                    <a class="site-nav-child-link" href="/collections/tops-shirts">TOPS & SHIRTS</a>
+                    <a class="site-nav-child-link" href="/collections/knits">KNITS</a>
+                    <a class="site-nav-child-link" href="/collections/bottoms">BOTTOMS</a>
+                    <a class="site-nav-child-link" href="/collections/denim">DENIM</a>
+                    <a class="site-nav-child-link" href="/collections/headwear">HEADWEAR</a>
+                    <a class="site-nav-child-link" href="/collections/accessories">ACCESSORIES</a>
+                    <a class="site-nav-child-link" href="/collections/all">ALL</a>
+                </div>
+                <div class="site-nav-mega">
+                    <a class="site-nav-child-link" href="/account/login">ACCOUNT</a>
+                    <a class="site-nav-child-link" href="/pages/customer-support">CONTACT</a>
+                    <a class="site-nav-child-link" href="/blogs/features">FEATURES</a>
+                    <a class="site-nav-child-link" href="/blogs/chapters">CHAPTERS</a>
+                </div>
+            </nav>
+            <script src="/static/js/header/header.js"></script>
+        </header>
+        <main>
+            <div class="login">
+                <h1 class="account-title">ACCOUNT</h1>
+                <div class="account-container">
+                    <section class="account-new">
+                        <h2 class="account-subtitle">회원가입</h2>
+                        <p class="account-content">회원가입을 하시면, 주문 조회와 개인정보 관리 및 빠른 체크아웃 등 다양한 혜택을 누리실 수 있습니다.</p>
+                        <button type="button" class="btn account-button">신규가입</button>
+                    </section>
+                    <section class="account-current">
+                        <form action="" method="post">
+                            <h2 class="account-subtitle">로그인</h2>
+                            <input type="email" class="account-input" name="username" placeholder="이메일" required>
+                            <input type="password" class="account-input" name="password" placeholder="비밀번호" required>
+                            <a class="find-password-link" href="">비밀번호를 잊으셨나요?</a>
+                            <button type="submit" class="btn account-button">로그인</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+</body>
+</html>
