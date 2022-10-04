@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/header.css">
     <link rel="stylesheet" href="/static/css/account.css">
@@ -57,24 +58,23 @@
             <div class="login">
                 <h1 class="account-title">ACCOUNT</h1>
                 <div class="account-container">
-                    <section class="account-new">
-                        <h2 class="account-subtitle">회원가입</h2>
-                        <p class="account-content">회원가입을 하시면, 주문 조회와 개인정보 관리 및 빠른 체크아웃 등 다양한 혜택을 누리실 수 있습니다.</p>
-                        <button type="button" class="btn account-button">신규가입</button>
-                    </section>
                     <section class="account-current">
-                        <form action="" method="post">
-                            <h2 class="account-subtitle">로그인</h2>
-                            <div class="errors errors-invisible">
-                                <ul>
-                                    <li>이메일 또는 비밀번호가 잘못되었습니다.</li>
-                                </ul>
+                        <h2 class="account-subtitle">신규 회원가입</h2>
+                        <div class="errors errors-invisible">
+
+                        </div>
+                        <div class="account-name">
+                            <div class="account-name-half">
+                                <input type="text" class="account-input" placeholder="이름">
                             </div>
-                            <input type="email" class="account-input" name="username" placeholder="이메일" required>
-                            <input type="password" class="account-input" name="password" placeholder="비밀번호" required>
-                            <a class="find-password-link" href="">비밀번호를 잊으셨나요?</a>
-                            <button type="submit" class="btn account-button">로그인</button>
-                        </form>
+                            <div class="account-name-half">
+                                <input type="text" class="account-input" placeholder="성">
+                            </div>
+                        </div>
+                        <input type="email" class="account-input" placeholder="이메일">
+                        <input type="password" class="account-input" placeholder="비밀번호">
+                        <button type="submit" class="btn account-button">확인</button>
+                        <a class="login-return-link" href="/account/login">로그인으로 돌아가기</a>
                     </section>
                 </div>
             </div>
@@ -83,6 +83,6 @@
 
         </footer>
     </div>
-    <script src="/static/js/account/login.js"></script>
+    <script src="/static/js/account/register.js"></script>
 </body>
 </html>

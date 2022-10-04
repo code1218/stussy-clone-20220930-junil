@@ -45,9 +45,45 @@ section {
 }
 
 .account-button {
+    margin-bottom: 15px;
+
     width: 100%;
 
     font-weight: 700;
     color: white;
     background-color: black;
+}
+
+.errors {
+    margin-bottom: 15px;
+    color: #e74c3c;
+    text-align: center;
+}
+
+.errors-invisible {
+    display: none;
+}
+
+.account-name {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.account-name-half {
+    width: 50%;
+}
+
+.account-name-half:nth-child(1) {
+    padding-right: 5px;
+}
+
+.account-name-half:nth-child(2) {
+    padding-left: 5px;
+}
+
+.login-return-link {
+    display: flex;
+    justify-content: center;
+    color: rgb(127, 127, 127);
 }

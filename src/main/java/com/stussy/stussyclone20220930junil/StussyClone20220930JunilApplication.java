@@ -10,4 +10,5 @@ public class StussyClone20220930JunilApplication {
 		SpringApplication.run(StussyClone20220930JunilApplication.class, args);
 	}
 
+
 }
