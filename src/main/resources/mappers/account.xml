@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.stussy.stussyclone20220930junil.repository.AccountRepository">
+    <resultMap id="role" type="com.stussy.stussyclone20220930junil.domain.Role">
+        <result property="id" column="id"/>
+        <result property="name" column="role_name"/>
+        <result property="create_date" column="create_date"/>
+        <result property="update_date" column="update_date"/>
+    </resultMap>
+
+    <resultMap id="user" type="com.stussy.stussyclone20220930junil.domain.User">
+        <result property="id" column="id"/>
+        <result property="email" column="email"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="provider" column="provider"/>
+        <result property="role_id" column="role_id"/>
+        <result property="create_date" column="create_date"/>
+        <result property="update_date" column="update_date"/>
+        <collection property="role" resultMap="role"/>
+    </resultMap>
+
+
+    <select id="findUserByEmail" parameterType="String" resultMap="user">
+        select
+            um.id,
+            um.email,
+            um.password,
+            um.name,
+            um.provider,
+            um.role_id,
+            rm.name as role_name,
+            um.create_date,
+            um.update_date
+        from
+            user_mst um
+            left outer join role_mst rm on(rm.id = um.role_id)
+        where
+            um.email = #{email}
+
+    </select>
+
+</mapper>
