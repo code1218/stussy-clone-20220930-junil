@@ -44,4 +44,29 @@
 
     </select>
 
+    <insert id="saveUser" parameterType="com.stussy.stussyclone20220930junil.domain.User">
+        insert into
+            user_mst
+        values(
+            0,
+            #{email},
+            #{password},
+            #{name},
+            #{provider},
+            #{role_id},
+            now(),
+            now()
+        )
+    </insert>
+
 </mapper>
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,14 +63,14 @@
                         <button type="button" class="btn account-button">신규가입</button>
                     </section>
                     <section class="account-current">
-                        <form action="" method="post">
+                        <form action="/account/login" method="post">
                             <h2 class="account-subtitle">로그인</h2>
                             <div class="errors errors-invisible">
                                 <ul>
                                     <li>이메일 또는 비밀번호가 잘못되었습니다.</li>
                                 </ul>
                             </div>
-                            <input type="email" class="account-input" name="username" placeholder="이메일" required>
+                            <input type="email" class="account-input" name="username" th:value="${email}" placeholder="이메일" required>
                             <input type="password" class="account-input" name="password" placeholder="비밀번호" required>
                             <a class="find-password-link" href="">비밀번호를 잊으셨나요?</a>
                             <button type="submit" class="btn account-button">로그인</button>
