@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 public class PrincipalDetailsService implements UserDetailsService {
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("loadUserByUsername: {}", username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        log.info("loadUserByUsername: {}", email);
 
         return null;
     }
