@@ -65,11 +65,20 @@
                     <section class="account-current">
                         <form action="/account/login" method="post">
                             <h2 class="account-subtitle">로그인</h2>
-                            <div class="errors errors-invisible">
-                                <ul>
-                                    <li>이메일 또는 비밀번호가 잘못되었습니다.</li>
-                                </ul>
-                            </div>
+                            <th:block th:if="${error == 'auth'}">
+                                <div class="errors">
+                                    <ul>
+                                        <li>이메일 또는 비밀번호가 잘못되었습니다.</li>
+                                    </ul>
+                                </div>
+                            </th:block>
+                            <th:block th:if="${error == 'passwordExpired'}">
+                                <div class="errors">
+                                    <ul>
+                                        <li>비밀번호 인증 5회 초과.</li>
+                                    </ul>
+                                </div>
+                            </th:block>
                             <input type="email" class="account-input" name="email" th:value="${email}" placeholder="이메일" required>
                             <input type="password" class="account-input" name="password" placeholder="비밀번호" required>
                             <a class="find-password-link" href="">비밀번호를 잊으셨나요?</a>

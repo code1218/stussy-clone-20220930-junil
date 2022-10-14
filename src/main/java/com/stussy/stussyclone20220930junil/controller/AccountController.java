@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AccountController {
 
     @GetMapping("/account/login")
-    public String login(Model model, @RequestParam @Nullable String email) {
+    public String login(Model model,
+                        @RequestParam @Nullable String email,
+                        @RequestParam @Nullable String error) {
         model.addAttribute("email", email == null ? "" : email);
+        model.addAttribute("error", error == null ? "" : error);
         return "account/login";
     }
 

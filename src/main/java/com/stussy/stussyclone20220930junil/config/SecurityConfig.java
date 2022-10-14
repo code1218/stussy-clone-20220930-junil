@@ -1,5 +1,6 @@
 package com.stussy.stussyclone20220930junil.config;
 
+import com.stussy.stussyclone20220930junil.security.AuthFailureHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,6 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("email")
                 .loginPage("/account/login")            // login page Get요청
                 .loginProcessingUrl("/account/login")   // login service Post요청
+                .failureHandler(new AuthFailureHandler())
                 .defaultSuccessUrl("/index");
     }
 }
