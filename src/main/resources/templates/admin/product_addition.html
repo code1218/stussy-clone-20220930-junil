@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <link rel="stylesheet" href="/static/css/aside.css">
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div class="header-container">
+                <div class="header-left-container">
+                    <div class="site-logo">
+                        <img class="site-logo-img" src="/static/images/header/site_logo.PNG" alt="sttusy">
+                    </div>
+                    <div class="nav-menu-button">
+                        <a class="nav-menu-button-link" href="">SHOP</a>
+                    </div>
+                </div>
+                <div class="header-right-container">
+                    <button class="header-search-button" type="button">SEARCH</button>
+                    <button class="header-bag-button" type="button">BAG(<span class="bag-count-number">1</span>)</button>
+                    <button class="header-country-button" type="button">
+                        <img class="country-button-img" src="/static/images/header/teageukgi.PNG" alt="태극기">
+                    </button>
+                </div>
+            </div>
+            <nav class="nav-invisible">
+                <div class="site-nav-mega">
+                    <a class="site-nav-child-link" href="/collections/new-arrivals">NEW</a>
+                    <a class="site-nav-child-link" href="/collections/tees">TEES</a>
+                    <a class="site-nav-child-link" href="/collections/sweats">SWEATS</a>
+                    <a class="site-nav-child-link" href="/collections/overdyed">OVERDYED</a>
+                    <a class="site-nav-child-link" href="/collections/outerwear">OUTERWEAR</a>
+                    <a class="site-nav-child-link" href="/collections/tops-shirts">TOPS & SHIRTS</a>
+                    <a class="site-nav-child-link" href="/collections/knits">KNITS</a>
+                    <a class="site-nav-child-link" href="/collections/bottoms">BOTTOMS</a>
+                    <a class="site-nav-child-link" href="/collections/denim">DENIM</a>
+                    <a class="site-nav-child-link" href="/collections/headwear">HEADWEAR</a>
+                    <a class="site-nav-child-link" href="/collections/accessories">ACCESSORIES</a>
+                    <a class="site-nav-child-link" href="/collections/all">ALL</a>
+                </div>
+                <div class="site-nav-mega">
+                    <a class="site-nav-child-link" href="/account/login">ACCOUNT</a>
+                    <a class="site-nav-child-link" href="/pages/customer-support">CONTACT</a>
+                    <a class="site-nav-child-link" href="/blogs/features">FEATURES</a>
+                    <a class="site-nav-child-link" href="/blogs/chapters">CHAPTERS</a>
+                </div>
+            </nav>
+            <script src="/static/js/header/header.js"></script>
+        </header>
+        <main>
+            <div class="admin">
+                <h1 class="admin-title">ADMIN PRODUCT ADD</h1>
+                <div class="admin-container">
+                    <aside class="admin-menus">
+                        <ul>
+                            <li><a href="/admin/products">상품 조회</a></li>
+                            <li><a href="/admin/product/addition">상품 등록</a></li>
+                            <li><a href="/admin/systems">시스템 정보</a></li>
+                            <li><a href="/logout">로그아웃</a></li>
+                        </ul>
+                    </aside>
+                    <section class="admin-main">
+                        <select class="product-inputs">
+                            <option value="none">상품 종류</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+    <script src="/static/js/account/register.js"></script>
+</body>
+</html>
