@@ -1,5 +1,6 @@
 package com.stussy.stussyclone20220930junil.dto.admin;
 
+import com.stussy.stussyclone20220930junil.domain.Product;
 import lombok.Data;
 
 import javax.validation.constraints.Min;
@@ -17,4 +18,21 @@ public class ProductRegisterReqDto {
     private String optionInfo;
     private String managementInfo;
     private String shippingInfo;
+
+    public Product toEntity() {
+        return Product.builder()
+                .build();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
