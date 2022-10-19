@@ -58,16 +58,7 @@ class ProductMst {
     }
 }
 
-class RegisterService { 
-    constructor() {
-        new RegisterEventService();
-        this.loadRegister();
-    }
 
-    loadRegister() {
-
-    }
-}
 
 class RegisterApi {
     createProductRequest(productMst) {
@@ -171,13 +162,35 @@ class RegisterEventService {
                 category, name, price, simpleInfo, detailInfo, 
                 optionInfo, managementInfo, shippingInfo);
 
-            console.log(productMst.getObject());
+            const registerApi = new RegisterApi();
+            registerApi.createProductRequest(productMst.getObject());
 
         }
     }
 }
 
+class RegisterService { 
+    static #instance = null;
+
+    constructor() {
+    }
+
+    static getInstance() {
+        if(this.#instance == null) {
+            this.#instance = new RegisterService();
+        }
+        return this.#instance;
+    }
+
+    loadRegister() {
+        
+    }
+
+    setRegisterHeaderEvent() {
+        new RegisterEventService();
+    }
+}
 
 window.onload = () => {
-    new RegisterService();
-} 
+    RegisterService.getInstance().setRegisterHeaderEvent();
+}

@@ -39,8 +39,12 @@
     animation: visible 0.2s linear alternate;
 }
 
-input[type="text"] { 
+input[type="text"], input[type="number"] { 
     height: 36px;
+}
+
+input[type="number"] {
+    text-align: right;
 }
 
 textarea {
