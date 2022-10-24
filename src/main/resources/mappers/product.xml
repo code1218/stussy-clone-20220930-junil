@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.stussy.stussyclone20220930junil.repository.ProductRepository">
+
+    <select id="getProductList" parameterType="hashmap" resultType="com.stussy.stussyclone20220930junil.domain.CollectionsProduct">
+        select
+            pm.id,
+            pm.pdt_name,
+            pm.pdt_price,
+            pim.temp_name,
+            pm_cnt.product_total_count
+        from
+            pdt_mst pm
+            left outer join pdt_image_mst pim on(pim.pdt_id = pm.id)
+            left outer join (   select count(*) product_total_count
+                                from pdt_mst
+                                where 1 = 1
+                                <if test='category != "null"'>
+                                    and category_id = (select id from category_mst where category_name = #{category})
+                                </if> ) pm_cnt on(1 = 1)
+        where
+            1 = 1
+            <if test='category != "null"'>
+                and pm.category_id = (select id from category_mst where category_name = #{category})
+            </if>
+        group by
+            pm.id
+        limit #{index}, 16
+
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+

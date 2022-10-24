@@ -58,11 +58,30 @@ class ProductMst {
     }
 }
 
-
-
-class RegisterApi {
-    createProductRequest(productMst) {
+class CommonApi {
+    getCategoryList() {
         let responseResult = null;
+
+        $.ajax({
+            async: false,
+            type: "get",
+            url: "/api/admin/product/category",
+            dataType: "json",
+            success: (response) => {
+                responseResult = response.data;
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        });
+
+        return responseResult;
+    }
+}
+
+class ProductApi {
+    createProductRequest(productMst) {
+        let responseData = null;
 
         $.ajax({
             async: false,
@@ -72,14 +91,34 @@ class RegisterApi {
             data: JSON.stringify(productMst),
             dataType: "json",
             success: (response) => {
-                responseResult = response.data;
+                responseData = response.data;
             },
             error: (error) => {
                 console.log(error);
             }
         });
         
-        return responseResult;
+        return responseData;
+    }
+
+    getProductListRequest(listRequestParams) {
+        let responseData = null;
+
+        $.ajax({
+            async: false,
+            type: "get",
+            url: "/api/admin/products",
+            data: listRequestParams,
+            dataType: "json",
+            success: (response) => {
+                responseData = response.data;
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        })
+
+        return responseData;
     }
 }
 
@@ -162,9 +201,11 @@ class RegisterEventService {
                 category, name, price, simpleInfo, detailInfo, 
                 optionInfo, managementInfo, shippingInfo);
 
-            const registerApi = new RegisterApi();
-            registerApi.createProductRequest(productMst.getObject());
-
+            const pegisterApi = new ProductApi();
+            if(pegisterApi.createProductRequest(productMst.getObject())) {
+                alert("상품 등록 완료");
+                location.reload();
+            }
         }
     }
 }
@@ -186,11 +227,38 @@ class RegisterService {
         
     }
 
+    getCategoryList() {
+        const commonApi = new CommonApi();
+        const productCategoryList = commonApi.getCategoryList();
+
+        const productCategory = document.querySelector(".product-category");
+        productCategory.innerHTML = `<option value="none">상품 종류</option><option value="1">test</option>`;
+
+        productCategoryList.forEach(category => {
+            productCategory.innerHTML += `
+            <option value="${category.id}">${category.name}</option>
+            `;
+        })
+
+    }
+
     setRegisterHeaderEvent() {
         new RegisterEventService();
     }
 }
 
+class ListService {
+    static #instance = null;
+
+    getInstance() {
+        if(this.#instance == null) {
+            this.#instance = new ListService();
+        }
+        return this.#instance;
+    }
+}
+
 window.onload = () => {
+    RegisterService.getInstance().getCategoryList();
     RegisterService.getInstance().setRegisterHeaderEvent();
 }

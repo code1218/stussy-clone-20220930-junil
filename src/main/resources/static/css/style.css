@@ -46,3 +46,16 @@ ul {
 main {
     margin-top: 60px;
 }
+
+table {
+    border-collapse: collapse;
+    border: 1px solid rgb(198, 198, 198);
+}
+
+th, td {
+    border: 1px solid rgb(198, 198, 198);
+
+    height: 30px;
+
+    text-align: center;
+}
