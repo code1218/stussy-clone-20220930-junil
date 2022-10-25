@@ -37,6 +37,17 @@
             now()
         )
     </insert>
+    
+    <select id="getProductMstList" resultType="com.stussy.stussyclone20220930junil.domain.OptionProductMst">
+        select
+            pm.id as pdt_id,
+            pcm.category_name as category,
+            pm.pdt_name
+        from
+            pdt_mst pm
+            left outer join pdt_category_mst pcm on(pcm.id = pm.category_id)
+    </select>
+
 
 
 </mapper>
