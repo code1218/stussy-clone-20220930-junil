@@ -88,17 +88,20 @@ class PageNumber {
             button.onclick = () => {
                 if(button.textContent == "<") {
                     const nowPage = CollectionsService.getInstance().collectionsEntity.page;
-                    CollectionsService.getInstance().collectionsEntity.page = nowPage - 1;
+                    CollectionsService.getInstance().collectionsEntity.page = Number(nowPage) - 1;
                     CollectionsService.getInstance().loadCollections();
 
                 }else if(button.textContent == ">") {
                     const nowPage = CollectionsService.getInstance().collectionsEntity.page;
-                    CollectionsService.getInstance().collectionsEntity.page = nowPage + 1;
+                    CollectionsService.getInstance().collectionsEntity.page = Number(nowPage) + 1;
                     CollectionsService.getInstance().loadCollections();
 
                 }else {
-                    CollectionsService.getInstance().collectionsEntity.page = button.textContent;
-                    CollectionsService.getInstance().loadCollections();
+                    const nowPage = CollectionsService.getInstance().collectionsEntity.page;
+                    if(button.textContent != nowPage){
+                        CollectionsService.getInstance().collectionsEntity.page = button.textContent;
+                        CollectionsService.getInstance().loadCollections();
+                    }
                 }
             }
         });
