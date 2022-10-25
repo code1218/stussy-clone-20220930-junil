@@ -1,5 +1,6 @@
 package com.stussy.stussyclone20220930junil.api;
 
+import com.stussy.stussyclone20220930junil.aop.annotation.LogAspect;
 import com.stussy.stussyclone20220930junil.dto.CMRespDto;
 import com.stussy.stussyclone20220930junil.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ public class ProductApi {
 
     private final ProductService productService;
 
+    @LogAspect
     @GetMapping("/collections/{category}")
     public ResponseEntity<?> getCollections(@PathVariable String category, int page) throws Exception {
 
