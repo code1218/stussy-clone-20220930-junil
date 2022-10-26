@@ -69,9 +69,10 @@ public class ProductAdminApi {
     public ResponseEntity<?> registerDtl(@RequestBody ProductRegisterDtlReqDto productRegisterDtlReqDto) throws Exception {
 
         productManagementService.checkDuplicatedColor(productRegisterDtlReqDto);
+        productManagementService.registerDtl(productRegisterDtlReqDto);
 
-        return ResponseEntity.ok()
-                .body(new CMRespDto<>("Register Successfully", null));
+        return ResponseEntity.created(null)
+                .body(new CMRespDto<>("Register Successfully", true));
     }
 
 }

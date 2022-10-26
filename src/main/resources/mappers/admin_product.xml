@@ -74,6 +74,20 @@
         and pdt_color = #{pdt_color}
     </select>
 
+    <insert id="saveProductDtl" parameterType="com.stussy.stussyclone20220930junil.domain.ProductDetail">
+        insert into
+            pdt_dtl
+        values(
+            0,
+            #{pdt_id},
+            #{size_id},
+            #{pdt_color},
+            #{pdt_stock},
+            now(),
+            now()
+        )
+    </insert>
+
 
 
 </mapper>

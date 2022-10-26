@@ -119,7 +119,7 @@ class Option {
                 "pdtId": document.querySelector(".product-select").value,
                 "pdtSize": document.querySelector(".product-size").value,
                 "pdtColor": document.querySelector(".product-color").value,
-                "pdtstock": document.querySelector(".product-stock").value
+                "pdtStock": document.querySelector(".product-stock").value
             }
             ProductApi.getInstance().registProductDtl(productDtlParams);
         }

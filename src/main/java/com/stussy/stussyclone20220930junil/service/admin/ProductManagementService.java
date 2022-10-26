@@ -18,4 +18,6 @@ public interface ProductManagementService {
     public List<?> getSizeList(int productId) throws Exception;
 
     public void checkDuplicatedColor(ProductRegisterDtlReqDto productRegisterDtlReqDto) throws Exception;
+
+    public void registerDtl(ProductRegisterDtlReqDto productRegisterDtlReqDto) throws Exception;
 }

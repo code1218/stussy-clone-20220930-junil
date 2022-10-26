@@ -63,4 +63,11 @@ public class ProductManagementServiceImpl implements ProductManagementService {
             throw new CustomValidationException("Duplicated Error", errorMap);
         }
     }
+
+    @Override
+    public void registerDtl(ProductRegisterDtlReqDto productRegisterDtlReqDto) throws Exception {
+        if(productManagementRepository.saveProductDtl(productRegisterDtlReqDto.toEntity()) == 0) {
+            throw new CustomInternalServerErrorException("상품 등록 오류");
+        }
+    }
 }
