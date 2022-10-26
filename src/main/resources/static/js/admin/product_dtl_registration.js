@@ -126,6 +126,8 @@ class Option {
     }
 }
 
+
+
 window.onload = () => {
     Option.getInstance().setProductMstSelectOptions();
     Option.getInstance().addSubmitEvent();
