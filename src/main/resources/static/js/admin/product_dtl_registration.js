@@ -40,6 +40,37 @@ class CommonApi {
         });
         return responseData;
     }
+}
+
+class ProductApi {
+    static #instance = null;
+    static getInstance() {
+        if(this.#instance == null) {
+            this.#instance = new ProductApi();
+        }
+        return this.#instance;
+    }
+
+    registProductDtl(productDtlParams) {
+        $.ajax({
+            async: false,
+            type: "post",
+            url: "/api/admin/product/dtl",
+            contentType: "application/json",
+            data: JSON.stringify(productDtlParams),
+            dataType: "json",
+            success: (response) => {
+                alert("추가 완료!");
+                location.reload();
+            },
+            error: (error) => {
+                console.log(error);
+                alert(`상품 추가 실패.
+${error.responseJSON.data.error}
+                `)
+            }
+        })
+    }
 
 }
 
@@ -80,8 +111,22 @@ class Option {
             `;
         })
     }
+
+    addSubmitEvent() {
+        const registButton = document.querySelector(".regist-button");
+        registButton.onclick = () => {
+            const productDtlParams = {
+                "pdtId": document.querySelector(".product-select").value,
+                "pdtSize": document.querySelector(".product-size").value,
+                "pdtColor": document.querySelector(".product-color").value,
+                "pdtstock": document.querySelector(".product-stock").value
+            }
+            ProductApi.getInstance().registProductDtl(productDtlParams);
+        }
+    }
 }
 
 window.onload = () => {
     Option.getInstance().setProductMstSelectOptions();
+    Option.getInstance().addSubmitEvent();
 }

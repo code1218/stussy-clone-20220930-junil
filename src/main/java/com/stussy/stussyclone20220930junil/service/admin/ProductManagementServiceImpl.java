@@ -1,16 +1,16 @@
 package com.stussy.stussyclone20220930junil.service.admin;
 
-import com.stussy.stussyclone20220930junil.dto.admin.CategoryResponseDto;
-import com.stussy.stussyclone20220930junil.dto.admin.ProductMstOptionRespDto;
-import com.stussy.stussyclone20220930junil.dto.admin.ProductRegisterReqDto;
-import com.stussy.stussyclone20220930junil.dto.admin.ProductSizeOptionRespDto;
+import com.stussy.stussyclone20220930junil.dto.admin.*;
 import com.stussy.stussyclone20220930junil.exception.CustomInternalServerErrorException;
+import com.stussy.stussyclone20220930junil.exception.CustomValidationException;
 import com.stussy.stussyclone20220930junil.repository.admin.ProductManagementRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -53,5 +53,14 @@ public class ProductManagementServiceImpl implements ProductManagementService {
         });
 
         return list;
+    }
+
+    @Override
+    public void checkDuplicatedColor(ProductRegisterDtlReqDto productRegisterDtlReqDto) throws Exception {
+        if(productManagementRepository.findProductColor(productRegisterDtlReqDto.toEntity()) > 0) {
+            Map<String, String> errorMap = new HashMap<String, String>();
+            errorMap.put("error", "이미 등록된 상품입니다.");
+            throw new CustomValidationException("Duplicated Error", errorMap);
+        }
     }
 }

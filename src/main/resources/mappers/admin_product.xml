@@ -61,6 +61,19 @@
             pm.id = #{productId}
     </select>
 
+    <select id="findProductColor"
+            parameterType="com.stussy.stussyclone20220930junil.domain.ProductDetail"
+            resultType="Integer">
+        select
+            count(*)
+        from
+            pdt_dtl
+        where
+            pdt_id = #{pdt_id}
+        and size_id = #{size_id}
+        and pdt_color = #{pdt_color}
+    </select>
+
 
 
 </mapper>
