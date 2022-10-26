@@ -3,6 +3,7 @@ package com.stussy.stussyclone20220930junil.service.admin;
 import com.stussy.stussyclone20220930junil.dto.admin.CategoryResponseDto;
 import com.stussy.stussyclone20220930junil.dto.admin.ProductMstOptionRespDto;
 import com.stussy.stussyclone20220930junil.dto.admin.ProductRegisterReqDto;
+import com.stussy.stussyclone20220930junil.dto.admin.ProductSizeOptionRespDto;
 import com.stussy.stussyclone20220930junil.exception.CustomInternalServerErrorException;
 import com.stussy.stussyclone20220930junil.repository.admin.ProductManagementRepository;
 import lombok.RequiredArgsConstructor;
@@ -38,6 +39,17 @@ public class ProductManagementServiceImpl implements ProductManagementService {
         List<ProductMstOptionRespDto> list = new ArrayList<ProductMstOptionRespDto>();
         productManagementRepository.getProductMstList().forEach(pdtMst -> {
             list.add(pdtMst.toDto());
+        });
+
+        return list;
+    }
+
+    @Override
+    public List<?> getSizeList(int productId) throws Exception {
+        List<ProductSizeOptionRespDto> list = new ArrayList<ProductSizeOptionRespDto>();
+
+        productManagementRepository.getSizeList(productId).forEach(size -> {
+            list.add(size.toDto());
         });
 
         return list;
