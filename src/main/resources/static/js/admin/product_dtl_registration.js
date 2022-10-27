@@ -164,7 +164,6 @@ class ProductImgFile {
             let changeFlag = false;
 
             formData.forEach(value => {
-                console.log(value);
                 if(value.size != 0) {
                     this.newImgList.push(value);
                     changeFlag = true;
@@ -172,10 +171,40 @@ class ProductImgFile {
             })
 
             if(changeFlag) {
+                this.loadImgs();
                 filesInput.value = null;
             }
 
         }
+    }
+
+    loadImgs() {
+        const fileList = document.querySelector(".file-list");
+        fileList.innerHTML = "";
+
+        this.newImgList.forEach((imgFile, i) => {
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                fileList.innerHTML += `
+                    <li class="file-info">
+                        <div class="file-img">
+                            <img src="${e.target.result}">
+                        </div>
+                        <div class="file-name">${imgFile.name}</div>
+                        <button type="button" class="btn delete-button">삭제</button>
+                    </li>
+                `;
+            }
+
+            setTimeout(() => {
+                reader.readAsDataURL(imgFile);
+            }, i * 300);
+
+        });
+
+        console.log(this.newImgList);
+
     }
 
     
