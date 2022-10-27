@@ -83,16 +83,26 @@ class Option {
         return this.#instance;
     }
 
+    constructor() {
+        this.setProductMstSelectOptions();
+        this.addSubmitEvent();
+    }
+
     setProductMstSelectOptions() {
         const pdtMstSelect = document.querySelector(".product-select");
-        CommonApi.getInstance().getProductMstList().forEach(product => {
-            console.log(product)
-            pdtMstSelect.innerHTML += `
-                <option value="${product.pdtId}">(${product.category})${product.pdtName}</option>
-            `;
-        });
+        const responseData = CommonApi.getInstance().getProductMstList();
+        if(responseData != null) {
+            if(responseData.length > 0) {
+                responseData.forEach(product => {
+                    console.log(product)
+                    pdtMstSelect.innerHTML += `
+                        <option value="${product.pdtId}">(${product.category})${product.pdtName}</option>
+                    `;
+                });
+                this.addMstSelectEvent();
+            }
+        }
 
-        this.addMstSelectEvent();
     }
 
     addMstSelectEvent() {
@@ -113,7 +123,7 @@ class Option {
     }
 
     addSubmitEvent() {
-        const registButton = document.querySelector(".regist-button");
+        const registButton = document.querySelectorAll(".regist-button")[0];
         registButton.onclick = () => {
             const productDtlParams = {
                 "pdtId": document.querySelector(".product-select").value,
@@ -126,9 +136,54 @@ class Option {
     }
 }
 
+class ProductImgFile {
+    static #instance = null;
+    static getInstance() {
+        if(this.#instance == null) {
+            this.#instance = new ProductImgFile();
+        }
+        return this.#instance;
+    }
+
+    newImgList = new Array();
+
+    constructor() {
+        this.addFileInputEvent();
+    }
+
+    addFileInputEvent() {
+        const filesInput = document.querySelector(".files-input");
+        const imgAddButton = document.querySelector(".img-add-button");
+        imgAddButton.onclick = () => {
+            filesInput.click();
+        }
+
+        filesInput.onchange = () => {
+            const formData = new FormData(document.querySelector("form"));
+
+            let changeFlag = false;
+
+            formData.forEach(value => {
+                console.log(value);
+                if(value.size != 0) {
+                    this.newImgList.push(value);
+                    changeFlag = true;
+                }
+            })
+
+            if(changeFlag) {
+                filesInput.value = null;
+            }
+
+        }
+    }
+
+    
+}
+
 
 
 window.onload = () => {
-    Option.getInstance().setProductMstSelectOptions();
-    Option.getInstance().addSubmitEvent();
+    ProductImgFile.getInstance();
+    Option.getInstance();
 }

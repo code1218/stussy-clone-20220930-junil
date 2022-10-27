@@ -96,8 +96,10 @@
                         <br>
                         <br>
                         <br>
-                        <input type="file" class="product-img" name="files" multiple>
-                        <button class="btn regist-button">사진등록</button>
+                        <form enctype="multipart/form-data">
+                            <input type="file" class="files-input" name="files" multiple>
+                        </form>
+                        <button class="btn regist-button img-add-button">사진등록</button>
                         <ul class="file-list">
                             <li class="file-info">
                                 <div class="file-img">
@@ -149,6 +151,13 @@
                                 <button type="button" class="btn delete-button">삭제</button>
                             </li>
                         </ul>
+                        <button class="btn regist-button upload-button">사진저장</button>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div></div>
                     </section>
                 </div>
             </div>
