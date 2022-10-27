@@ -72,6 +72,26 @@ ${error.responseJSON.data.error}
         })
     }
 
+    registImgFiles(formData) {
+        $.ajax({
+            async: false,
+            type: "post",
+            url: "/api/admin/product/img",
+            enctype: "multipart/form-data",
+            contentType: false,
+            processData: false,
+            data: formData,
+            dataType: "json",
+            success: (response) => {
+                alert("이미지 등록 완료");
+                location.reload();
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        });
+    }
+
 }
 
 class Option {
@@ -151,6 +171,23 @@ class ProductImgFile {
         this.addFileInputEvent();
     }
 
+    addUploadEvent() {
+        const uploadButton = document.querySelector(".upload-button");
+        uploadButton.onclick = () => {
+            const formData = new FormData();
+
+            const productId = document.querySelector(".product-select").value;
+            formData.append("pdtId", productId);
+
+            this.newImgList.forEach(imgFile => {
+                formData.append("files", imgFile);
+            });
+
+            ProductApi.getInstance().registImgFiles(formData);
+            
+        }
+    }
+
     addFileInputEvent() {
         const filesInput = document.querySelector(".files-input");
         const imgAddButton = document.querySelector(".img-add-button");
@@ -203,8 +240,24 @@ class ProductImgFile {
 
         });
 
-        console.log(this.newImgList);
+        setTimeout(() => {
+            this.addDeleteEvent();
+        }, this.newImgList.length * 300);
 
+        
+    }
+
+    addDeleteEvent() {
+        const deleteButtons = document.querySelectorAll(".delete-button");
+
+        deleteButtons.forEach((deleteButton, i) => {
+            deleteButton.onclick = () => {
+                if(confirm("상품을 지우시겠습니까?")) {
+                    this.newImgList.splice(i, 1);
+                    this.loadImgs();
+                }
+            }
+        });
     }
 
     
