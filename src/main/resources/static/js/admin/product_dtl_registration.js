@@ -169,6 +169,7 @@ class ProductImgFile {
 
     constructor() {
         this.addFileInputEvent();
+        this.addUploadEvent();
     }
 
     addUploadEvent() {

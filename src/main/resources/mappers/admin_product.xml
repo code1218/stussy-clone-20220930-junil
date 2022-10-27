@@ -87,7 +87,21 @@
             now()
         )
     </insert>
-
+    <insert id="saveProductImg" parameterType="java.util.List">
+        insert into
+            pdt_image_mst
+        values
+        <foreach collection="list" item="img" separator=",">
+            (
+                0,
+                #{img.pdt_id},
+                #{img.origin_name},
+                #{img.save_name},
+                now(),
+                now()
+            )
+        </foreach>
+    </insert>
 
 
 </mapper>
