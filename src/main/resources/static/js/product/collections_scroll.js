@@ -116,6 +116,19 @@ class CollectionsService {
             </li>
             `;
         });
+
+        this.addProductListEvent(responseData);
+    }
+
+    addProductListEvent(responseData) {
+        const collectionProducts = document.querySelectorAll(".collection-product");
+
+        collectionProducts.forEach((product, index) => {
+            product.onclick = () => {
+                location.href = "/product/" + responseData[index].productId;
+            }
+        });
+
     }
 
 }
