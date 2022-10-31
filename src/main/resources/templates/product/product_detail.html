@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+
+    <link rel="stylesheet" href="/static/css/product.css">
+    <title>Product</title>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div class="header-container">
+                <div class="header-left-container">
+                    <div class="site-logo">
+                        <img class="site-logo-img" src="/static/images/header/site_logo.PNG" alt="sttusy">
+                    </div>
+                    <div class="nav-menu-button">
+                        <a class="nav-menu-button-link" href="">SHOP</a>
+                    </div>
+                </div>
+                <div class="header-right-container">
+                    <button class="header-search-button" type="button">SEARCH</button>
+                    <button class="header-bag-button" type="button">BAG(<span class="bag-count-number">1</span>)</button>
+                    <button class="header-country-button" type="button">
+                        <img class="country-button-img" src="/static/images/header/teageukgi.PNG" alt="태극기">
+                    </button>
+                </div>
+            </div>
+            <nav class="nav-invisible">
+                <div class="site-nav-mega">
+                    <a class="site-nav-child-link" href="/collections/new-arrivals">NEW</a>
+                    <a class="site-nav-child-link" href="/collections/tees">TEES</a>
+                    <a class="site-nav-child-link" href="/collections/sweats">SWEATS</a>
+                    <a class="site-nav-child-link" href="/collections/overdyed">OVERDYED</a>
+                    <a class="site-nav-child-link" href="/collections/outerwear">OUTERWEAR</a>
+                    <a class="site-nav-child-link" href="/collections/tops-shirts">TOPS & SHIRTS</a>
+                    <a class="site-nav-child-link" href="/collections/knits">KNITS</a>
+                    <a class="site-nav-child-link" href="/collections/bottoms">BOTTOMS</a>
+                    <a class="site-nav-child-link" href="/collections/denim">DENIM</a>
+                    <a class="site-nav-child-link" href="/collections/headwear">HEADWEAR</a>
+                    <a class="site-nav-child-link" href="/collections/accessories">ACCESSORIES</a>
+                    <a class="site-nav-child-link" href="/collections/all">ALL</a>
+                </div>
+                <div class="site-nav-mega">
+                    <a class="site-nav-child-link" href="/account/login">ACCOUNT</a>
+                    <a class="site-nav-child-link" href="/pages/customer-support">CONTACT</a>
+                    <a class="site-nav-child-link" href="/blogs/features">FEATURES</a>
+                    <a class="site-nav-child-link" href="/blogs/chapters">CHAPTERS</a>
+                </div>
+            </nav>
+            <script src="/static/js/header/header.js"></script>
+        </header>
+        <main>
+            <section class="product-section">
+                <div class="product-images">
+                    <div class="product-image">
+                        <img src="/static/images/product/1924840_PUTT_1_720x.png" alt="">
+                    </div>
+                    <div class="product-image">
+                        <img src="/static/images/product/1924840_PUTT_1_720x.png" alt="">
+                    </div>
+                    <div class="product-image">
+                        <img src="/static/images/product/1924840_PUTT_1_720x.png" alt="">
+                    </div>
+                    <div class="product-image">
+                        <img src="/static/images/product/1924840_PUTT_1_720x.png" alt="">
+                    </div>
+                    <div class="product-image">
+                        <img src="/static/images/product/1924840_PUTT_1_720x.png" alt="">
+                    </div>
+                    <div class="product-image">
+                        <img src="/static/images/product/1924840_PUTT_1_720x.png" alt="">
+                    </div>
+                    <div class="product-image">
+                        <img src="/static/images/product/1924840_PUTT_1_720x.png" alt="">
+                    </div>
+                </div>
+                <div class="offers">
+                    <h1 class="product-title">WORLD TOUR ZIP HOODIE</h1>
+                    <div class="product-price">₩167,000</div>
+                    <div class="product-form">
+                        <form action="/order" method="get">
+                            <input type="hidden">
+                            <select class="product-colors">
+                                <option value="Black">Black</option>
+                                <option value="Black">Black</option>
+                                <option value="Black">Black</option>
+                                <option value="Black">Black</option>
+                            </select>
+                            <div class="product-sizes">
+                                <input type="radio" id="product-size-SS" class="product-size" name="pdtSize">
+                                <label for="product-size-SS">SS</label>
+                                <input type="radio" id="product-size-S" class="product-size" name="pdtSize">
+                                <label for="product-size-S">S</label>
+                                <input type="radio" id="product-size-M" class="product-size" name="pdtSize">
+                                <label for="product-size-M">M</label>
+                                <input type="radio" id="product-size-L" class="product-size" name="pdtSize">
+                                <label for="product-size-L">L</label>
+                                <input type="radio" id="product-size-XL" class="product-size" name="pdtSize">
+                                <label for="product-size-XL">XL</label>
+                                <input type="radio" id="product-size-XXL" class="product-size" name="pdtSize">
+                                <label for="product-size-XXL" class="no-stock">XXL</label>
+                            </div>
+                            <button type="button" class="btn bag-button">ADD TO BAG</button>
+                            <button type="button" class="btn checkout-button">CHECKOUT</button>
+                        </form>
+                    </div>
+                    <div class="product-info">
+                        <pre class="info simple-info">Longsleeve hooded zip sweatshirt.</pre>
+                        <pre class="info detail-info">PRODUCT DETAILS
+- Screenprinted graphics
+- Front zip closure
+- Flat woven drawcord
+- Woven eyelets
+- Kangaroo pocket
+- Ribbed cuffs and hem</pre>
+                        <pre class="info option-info"></pre>
+                        <pre class="info management-info">80% Cotton / 20% Polyester
+Imported</pre>
+                        <pre class="info shipping-info">7만원 이상 구매시 무료배송</pre>
+                    </div>
+                </div>
+            </section>
+            <section class="other-products">
+                <div class="other-product-img">
+                    <img src="/static/images/product/1924840_PUTT_1_720x.png">
+                </div>
+                <div class="other-product-img">
+                    <img src="/static/images/product/1924840_PUTT_1_720x.png">
+                </div>
+                <div class="other-product-img">
+                    <img src="/static/images/product/1924840_PUTT_1_720x.png">
+                </div>
+                <div class="other-product-img">
+                    <img src="/static/images/product/1924840_PUTT_1_720x.png">
+                </div>
+            </section>
+        </main>
+        <footer>
+        </footer>
+    </div>
+    <script src="/static/js/product/collections_scroll.js"></script>
+</body>
+</html>
