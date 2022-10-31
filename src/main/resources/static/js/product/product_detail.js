@@ -37,6 +37,7 @@ class ProductDetail {
         this.loadProductImgs(responseData);
         this.loadProductDetail(responseData);
         this.loadProductColors(responseData);
+        this.loadProductSizes(responseData);
     }
 
     loadProductImgs(responseData) {
@@ -71,6 +72,33 @@ ${responseData.pdtDetailInfo}`;
         Object.keys(responseData.pdtColors).forEach(color => {
             productColors.innerHTML += `<option value="${color}">${color}</option>`;
         });
+    }
+
+    loadProductSizes(responseData) {
+        const productColors = document.querySelector(".product-colors");
+        const productSizes = document.querySelector(".product-sizes");
+        productSizes.innerHTML = "";
+        Object.entries(responseData.pdtColors).forEach(entry => {
+            if(productColors.value == entry[0]) {
+                entry[1].forEach(value => {
+                    productSizes.innerHTML += `
+                        <input type="hidden" id="pdtDtlId" value="${value.pdtDtlId}">
+                        <input type="radio" id="product-size-${value.sizeName}" class="product-size" name="pdtSize" value="${value.sizeId}" ${value.pdtStock == 0 ? 'disabled' : ''}>
+                        <label for="product-size-${value.sizeName}" ${value.pdtStock == 0 ? 'class="no-stock"' : ''}>${value.sizeName}</label>
+                    `;
+                })
+                
+            }
+        });
+
+        this.addColorsSelectEvent(responseData);
+    }
+
+    addColorsSelectEvent(responseData) {
+        const productColors = document.querySelector(".product-colors");
+        productColors.onchange = () => {
+            this.loadProductSizes(responseData);
+        }
     }
 
 }
