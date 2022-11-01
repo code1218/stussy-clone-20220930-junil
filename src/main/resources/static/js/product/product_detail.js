@@ -82,8 +82,7 @@ ${responseData.pdtDetailInfo}`;
             if(productColors.value == entry[0]) {
                 entry[1].forEach(value => {
                     productSizes.innerHTML += `
-                        <input type="hidden" id="pdtDtlId" value="${value.pdtDtlId}">
-                        <input type="radio" id="product-size-${value.sizeName}" class="product-size" name="pdtSize" value="${value.sizeId}" ${value.pdtStock == 0 ? 'disabled' : ''}>
+                        <input type="radio" id="product-size-${value.sizeName}" class="product-size" name="pdtDtlId" value="${value.pdtDtlId}" ${value.pdtStock == 0 ? 'disabled' : ''} required>
                         <label for="product-size-${value.sizeName}" ${value.pdtStock == 0 ? 'class="no-stock"' : ''}>${value.sizeName}</label>
                     `;
                 })

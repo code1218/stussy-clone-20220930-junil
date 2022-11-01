@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="stylesheet" href="/static/css/order.css">
+    <title>결제</title>
+</head>
+<body>
+    <div id="container">
+        <main>
+            <header class="main-header">
+                <a href="/index" class="logo"><img src="/static/images/header/site_logo.PNG"></a>
+                <ul>
+                    <li>카트<strong>&#62;</strong></li>
+                    <li>정보<strong>&#62;</strong></li>
+                    <li>배송<strong>&#62;</strong></li>
+                    <li>지급</li>
+                </ul>
+            </header>
+            <section class="main-content">
+                <div class="principal-info">
+                    <h2 class="info-title">연락처 정보</h2>
+                    <div class="info-detail">
+                        <div class="profile-img">
+                            <img src="/static/images/header/profile.png">
+                        </div>
+                        <div class="profile-detail">
+                            <div class="principal-user">김준일 (skjil1218@gmail.com)</div>
+                            <a href="/logout">로그아웃</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="address-info">
+                    <h2 class="info-title">배송 주소</h2>
+                    <select>
+                        <option value="ko">대한민국</option>
+                    </select>
+                    <input type="text" class="principal-name" placeholder="성명">
+                    <div class="address-items">
+                        <input type="text" class="address-zonecode" placeholder="우편번호" disabled>
+                        <button type="button" class="btn address-button">주소찾기</button>
+                    </div>
+                    <div class="address-items">
+                        <input type="text" class="address-sido" placeholder="시/도" disabled>
+                        <input type="text" class="address-sigungu" placeholder="구/군/시" disabled>
+                    </div>
+                    <input type="text" class="address-all" placeholder="주소" disabled>
+                    <input type="text" class="address-detail" placeholder="아파트, 동/호수 등">
+                    <input type="text" class="phone-number" placeholder="전화번호">
+                </div>
+                <div class="payment-content">
+                    <button type="button" class="btn payment-button">결제하기</button>
+                </div>
+            </section>
+            <footer class="main-footer">
+                <a href="#">환불 정책</a>
+                <a href="#">배송 정책</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">서비스 약관</a>
+            </footer>
+        </main>
+        <aside>
+            <ul class="order-summary">
+                <li class="product-list">
+                    <div class="product-info">
+                        <div class="product-img">
+                            <img src="/static/images/product/1924840_PUTT_1_720x.png">
+                        </div>
+                        <div class="product-description">
+                            <h2>상품명</h2>
+                            <span>Black / S</span>
+                        </div>
+                    </div>
+                    <div class="product-price">\100000</div>
+                </li>
+            </ul>
+            <div class="order-info">
+                <div class="order-price">
+                    <h3>총 상품금액</h3><span>\100000</span>
+                </div>
+                <div class="order-shipping">
+                    <h3>배송비</h3><span>무료배송</span>
+                </div>
+            </div>
+            <div class="order-total">
+                <h2>총 결제금액</h2><strong>\100000</strong>
+            </div>
+        </aside>
+    </div>
+    <script src="/static/js/product/address.js"></script>
+    <script src="/static/js/product/product_order.js"></script>
+</body>
+</html>
