@@ -82,6 +82,27 @@
         WHERE
             pm.id = #{pdtId}
     </select>
+    <select id="getPaymentProduct" resultType="com.stussy.stussyclone20220930junil.domain.PaymentProduct">
+        SELECT
+            pd.id AS pdt_dtl_id,
+            pd.pdt_id,
+            pm.pdt_name,
+            pm.pdt_price,
+            pd.pdt_color,
+            pd.size_id,
+            psm.size_name,
+            pim.save_name
+        FROM
+            pdt_dtl pd
+            LEFT OUTER JOIN pdt_mst pm ON(pm.id = pd.pdt_id)
+            LEFT OUTER JOIN pdt_size_dtl psd ON(psd.id = pd.size_id)
+            LEFT OUTER JOIN pdt_size_mst psm ON(psm.id = psd.size_id)
+            LEFT OUTER JOIN pdt_image_mst pim ON(pim.pdt_id = pd.pdt_id)
+        WHERE
+            pd.id = #{pdtDtlId}
+        LIMIT 1
+
+    </select>
 
 </mapper>
 
