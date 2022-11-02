@@ -9,6 +9,31 @@ spring:
     user:
       name: test@naver.com
       password: 1q2w3e4r!
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 463278431196-as9773icaq0pp59mibg3ap62v1un4n7b.apps.googleusercontent.com
+            clientSecret: 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
+            scope:
+              - email
+              - profile
+          naver:
+            clientId: y0NxwS9hAjUgSGlcV2bG
+            clientSecret: MkevdUg1C5
+            scope:
+              - email
+              - name
+            clientName: Naver
+            authorizationGrantType: authorization_code
+            redirectUri: http://localhost:8000/login/oauth2/code/naver
+        provider:
+          naver:
+            authorizationUri: https://nid.naver.com/oauth2.0/authorize
+            tokenUri: https://nid.naver.com/oauth2.0/token
+            userInfoUri: https://openapi.naver.com/v1/nid/me
+            userNameAttribute: response
+
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
